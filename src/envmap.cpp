@@ -240,10 +240,7 @@ CRenderer::RenderFadingInBuildings(void)
 void
 RenderReflectionScene(void)
 {
-	if(CCutsceneMgr__ms_running)
-		reflectionCamPos = TheCamera.GetPosition();
-	else
-		reflectionCamPos = FindPlayerPed(-1)->GetPosition();
+	reflectionCamPos = TheCamera.GetPosition();
 
 	DefinedState();
 	/* We do have fog for the sphere map but we have to calculate it ourselves  */
