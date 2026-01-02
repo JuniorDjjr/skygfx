@@ -1,10 +1,12 @@
 ![](http://i.imgur.com/RXklRRg.png)
 
+## SkyGfx Extended
+
 SkyGfx (Sky is name of Renderware for the PS2) brings accurate PS2 graphics to the PC version of San Andreas, Vice City and III (and now Xbox graphics to III and Vice City).
 
 [More information on gtaforums.](http://gtaforums.com/topic/750681-skygfx-ps2-and-xbox-graphics-for-pc/)
 
-This is a Extended alternative version maintained by me (Junior_Djjr), in short, due to this project it is an excellent base for shaders in GTA SA, so this alternative version seeks to add new shaders and modern features to the game, different from the original SkyGfx goal.
+This is a Extended alternative version maintained by me (Junior_Djjr) named as "SkyGfx Extended", in short, due to this project it is an excellent base for shaders in GTA SA, so this alternative version seeks to add new shaders and modern features to the game, different from the original SkyGfx goal.
 
 ![](https://www.mixmods.com.br/wp-content/uploads/2021/06/gta-sa-mod-skygfx-extended-stochastic-procedural-texture-tiling-fix-1503666.jpg)
 
