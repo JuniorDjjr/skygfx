@@ -12,7 +12,7 @@ This is a Extended alternative version maintained by me (Junior_Djjr) named as "
 
 ![](https://www.mixmods.com.br/wp-content/uploads/2022/03/gta-sa-mod-skygfx-extended-alpha-transparency-fix-bug-9878175.jpg)
 
-[More information on MixMods.](https://www.mixmods.com.br/2022/03/sa-skygfx/)
+[More information and download on MixMods.](https://www.mixmods.com.br/2022/03/sa-skygfx/)
 
 ----------
 
