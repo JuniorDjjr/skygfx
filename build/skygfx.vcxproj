@@ -144,7 +144,6 @@ for /r "../shaders/vs/" %%f in (*.hlsl) do "fxc.exe" /T vs_2_0 /nologo /E main /
     <ClCompile Include="..\src\vehiclePipe.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\resources\Resource.aps" />
     <None Include="..\shaders\shaders.bat" />
   </ItemGroup>
   <ItemGroup>
