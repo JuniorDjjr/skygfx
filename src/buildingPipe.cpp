@@ -550,7 +550,7 @@ CCustomBuildingDNPipeline__CustomPipeRenderCB_Sphere(RwResEntry *repEntry, void 
 		}else
 			RwD3D9SetVertexShaderConstant(REG_texmat, &ident, 4);
 
-		hasAlpha = instancedData->vertexAlpha == true || instancedData->material->color.alpha != 255;
+		hasAlpha = (instancedData->vertexAlpha != 0) || instancedData->material->color.alpha != 255;
 		RwRenderStateSet(rwRENDERSTATEVERTEXALPHAENABLE, (void*)hasAlpha);
 
 		pipeUploadMatCol(flags, material, REG_matCol);

@@ -62,7 +62,7 @@ VS_OUTPUT main(in VS_INPUT IN)
 
 	float4 PositionEdited = IN.Position;
 
-	float dist = ((noise(windPos + PositionEdited) - 0.5) * windIntensity * intensityMask);
+	float dist = ((noise(windPos + PositionEdited.xy) - 0.5) * windIntensity * intensityMask);
 
 	PositionEdited.x = (PositionEdited.x + dist);
 	PositionEdited.y = (PositionEdited.y + dist);
