@@ -1,51 +1,54 @@
-name: Build SkyGfx Extended
+# This file is a workflow template and is intentionally not located in .github/workflows/.
+# To use this workflow, copy its contents under .github/workflows/build.yml (or another file name).
+workflow_template:
+  name: Build SkyGfx Extended
 
-on:
-  push:
-  pull_request:
-  workflow_dispatch:
+  on:
+    push:
+    pull_request:
+    workflow_dispatch:
 
-jobs:
-  build:
-    runs-on: windows-latest
-    
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v6
-      with:
-        submodules: recursive
-    
-    - name: Checkout plugin-sdk for RWSDK headers
-      uses: actions/checkout@v6
-      with:
-        repository: DK22Pac/plugin-sdk
-        path: plugin-sdk
-        sparse-checkout: |
-          plugin_sa/game_sa/rw
-        sparse-checkout-cone-mode: false
-    
-    - name: Setup Environment
-      run: |
-        $rwsdkPath = Join-Path "${{ github.workspace }}" "plugin-sdk\plugin_sa\game_sa\rw"
-        echo "RWSDK36=$rwsdkPath" >> $env:GITHUB_ENV
-      shell: pwsh
-    
-    - name: Add MSBuild to PATH
-      uses: microsoft/setup-msbuild@v2
-    
-    - name: Build
-      run: |
-        .\premake5.exe vs2022
-        msbuild build\skygfx.sln /p:Configuration=Release /p:Platform=Win32 /m
-      shell: cmd
-    
-    - name: Convert to ASI
-      run: |
-        Copy-Item "bin\Release\skygfx.dll" "bin\Release\skygfx.asi"
-      shell: pwsh
-    
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v6
-      with:
-        name: SkyGfx-Extended
-        path: bin/Release/skygfx.asi
+  jobs:
+    build:
+      runs-on: windows-latest
+      
+      steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+      
+      - name: Checkout plugin-sdk for RWSDK headers
+        uses: actions/checkout@v6
+        with:
+          repository: DK22Pac/plugin-sdk
+          path: plugin-sdk
+          sparse-checkout: |
+            plugin_sa/game_sa/rw
+          sparse-checkout-cone-mode: false
+      
+      - name: Setup Environment
+        run: |
+          $rwsdkPath = Join-Path "${{ github.workspace }}" "plugin-sdk\plugin_sa\game_sa\rw"
+          echo "RWSDK36=$rwsdkPath" >> $env:GITHUB_ENV
+        shell: pwsh
+      
+      - name: Add MSBuild to PATH
+        uses: microsoft/setup-msbuild@v2
+      
+      - name: Build
+        run: |
+          .\premake5.exe vs2022
+          msbuild build\skygfx.sln /p:Configuration=Release /p:Platform=Win32 /m
+        shell: cmd
+      
+      - name: Convert to ASI
+        run: |
+          Copy-Item "bin\Release\skygfx.dll" "bin\Release\skygfx.asi"
+        shell: pwsh
+      
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: SkyGfx-Extended
+          path: bin/Release/skygfx.asi
