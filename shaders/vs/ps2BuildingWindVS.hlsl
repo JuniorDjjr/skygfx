@@ -40,10 +40,10 @@ float noise(float2 x)
 	f = f * f * (3.0 - 2.0 * f);
 	float n = p.x + p.y * 57.0;
 
-	return lerp(lerp(hash(n + 0.0), hash(n + 1.0), f.x),
+	return lerp(lerp(lerp(hash(n + 0.0), hash(n + 1.0), f.x),
 				lerp(hash(n + 57.0), hash(n + 58.0), f.x), f.y),
 		lerp(lerp(hash(n + 113.0), hash(n + 114.0), f.x),
-			 lerp(hash(n + 170.0), hash(n + 171.0), f.x), f.y);
+			 lerp(hash(n + 170.0), hash(n + 171.0), f.x), f.y), 0.5);
 }
 
 VS_OUTPUT main(in VS_INPUT IN)
@@ -56,7 +56,7 @@ VS_OUTPUT main(in VS_INPUT IN)
 
 	float4 PositionEdited = IN.Position;
 
-	float dist = ((noise(windPos + PositionEdited) - 0.5) * windIntensity * intensityMask);
+	float dist = ((noise(windPos + PositionEdited.xy) - 0.5) * windIntensity * intensityMask);
 
 	PositionEdited.x = (PositionEdited.x + dist);
 	PositionEdited.y = (PositionEdited.y + dist);

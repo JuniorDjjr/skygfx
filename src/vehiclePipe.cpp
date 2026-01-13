@@ -438,7 +438,7 @@ CCustomCarEnvMapPipeline__CustomPipeRenderCB_PS2(RwResEntry *repEntry, void *obj
 
 		pipeSetTexture(material->texture, 0);
 
-		hasAlpha = instancedData->vertexAlpha == true || instancedData->material->color.alpha != 255;
+		hasAlpha = (instancedData->vertexAlpha != 0) || instancedData->material->color.alpha != 255;
 		RwRenderStateSet(rwRENDERSTATEVERTEXALPHAENABLE, (void*)hasAlpha);
 
 		pipeUploadMatCol(flags, material, REG_matCol);
@@ -830,7 +830,7 @@ CCustomCarEnvMapPipeline__CustomPipeRenderCB_Xbox(RwResEntry *repEntry, void *ob
 		hasEnv2  = (materialFlags & 2) && !noFx && (flags & rpGEOMETRYTEXTURED2);
 		hasSpec  = (materialFlags & 4) && !noFx && !renderingWheel;
 
-		hasAlpha = instancedData->vertexAlpha == true || instancedData->material->color.alpha != 255;
+		hasAlpha = (instancedData->vertexAlpha != 0) || instancedData->material->color.alpha != 255;
 		RwRenderStateSet(rwRENDERSTATEVERTEXALPHAENABLE, (void*)hasAlpha);
 
 		RwD3D9SetTexture(NULL, 1);
@@ -1009,7 +1009,7 @@ CCustomCarEnvMapPipeline__CustomPipeRenderCB_leeds(RwResEntry *repEntry, void *o
 
 		pipeSetTexture(material->texture, 0);
 
-		hasAlpha = instancedData->vertexAlpha == true || instancedData->material->color.alpha != 255;
+		hasAlpha = (instancedData->vertexAlpha != 0) || instancedData->material->color.alpha != 255;
 		RwRenderStateSet(rwRENDERSTATEVERTEXALPHAENABLE, (void*)hasAlpha);
 
 		pipeUploadMatCol(flags, material, REG_matCol);
@@ -1330,7 +1330,7 @@ CCustomCarEnvMapPipeline__CustomPipeRenderCB_Env(RwResEntry *repEntry, void *obj
 
 		pipeSetTexture(material->texture, 0);
 
-		hasAlpha = instancedData->vertexAlpha == true || instancedData->material->color.alpha != 255;
+		hasAlpha = (instancedData->vertexAlpha != 0) || instancedData->material->color.alpha != 255;
 		RwRenderStateSet(rwRENDERSTATEVERTEXALPHAENABLE, (void*)hasAlpha);
 
 		envData = *GETENVMAP(material);

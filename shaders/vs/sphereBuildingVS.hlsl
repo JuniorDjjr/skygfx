@@ -38,7 +38,7 @@ VS_OUTPUT main(in VS_INPUT IN)
 	// Sphere map
 	// 'combined' is world matrix
 	float4 WorldPos = mul(IN.Position, combined);
-	OUT.WorldPos = WorldPos;
+	OUT.WorldPos = WorldPos.xyz;
 	float3 ReflVector = WorldPos.xyz - campos;
 	float3 ReflPos = normalize(ReflVector);
 	ReflPos.xy = normalize(ReflPos.xy) * (ReflPos.z * 0.5 + 0.5);

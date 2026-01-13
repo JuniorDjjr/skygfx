@@ -1122,7 +1122,7 @@ readIni(int n)
 	c->envShininessMult = readfloat(cfg.get("SkyGfx", "envShininessMult", ""), 1.0);
 	c->envSpecularityMult = readfloat(cfg.get("SkyGfx", "envSpecularityMult", ""), 1.0);
 	c->envPower = readfloat(cfg.get("SkyGfx", "envPower", ""), 20.0);
-	c->envFresnel = readfloat(cfg.get("SkyGfx", "envFresnel", ""), 0.7);
+	c->envFresnel = readfloat(cfg.get("SkyGfx", "envFresnel", ""), 0.7f);
 	c->envMapSize = readint(cfg.get("SkyGfx", "envMapSize", ""), 256);
 	int i = 1;
 	while(i < c->envMapSize) i *= 2;

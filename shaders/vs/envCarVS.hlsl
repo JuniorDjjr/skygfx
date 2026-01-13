@@ -53,7 +53,7 @@ main(VS_INPUT IN)
 	float4 WorldPos = mul(IN.Position, world);
 	float3 WorldNormal = normalize(mul(IN.Normal, (float3x3)world));
 	float3 ViewVector = normalize(WorldPos.xyz - eye);
-	OUT.WorldPos = WorldPos;
+	OUT.WorldPos = WorldPos.xyz;
 	OUT.WorldNormal = WorldNormal;
 
 	// reflection intensity
