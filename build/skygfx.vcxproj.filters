@@ -59,6 +59,9 @@
     <ClCompile Include="..\src\envmap.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\extendedplg.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
     <ClCompile Include="..\src\gta.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -92,11 +95,11 @@
     <ClCompile Include="..\src\vehiclePipe.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\extendedplg.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\resources\Resource.aps">
+      <Filter>resources</Filter>
+    </None>
     <None Include="..\shaders\shaders.bat">
       <Filter>shaders</Filter>
     </None>

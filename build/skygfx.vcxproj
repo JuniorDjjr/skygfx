@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Release|Win32">
-      <Configuration>Release</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
@@ -15,101 +15,60 @@
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>skygfx</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LinkIncremental>false</LinkIncremental>
-    <OutDir>..\bin\Release\</OutDir>
-    <IntDir>obj\Release\</IntDir>
-    <TargetName>skygfx</TargetName>
-    <TargetExt>.dll</TargetExt>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>..\bin\Debug\</OutDir>
-    <IntDir>obj\Debug\</IntDir>
+    <OutDir>$(ProjectDir)..\bin\Debug\</OutDir>
+    <IntDir>$(ProjectDir)obj\Debug\</IntDir>
     <TargetName>skygfx</TargetName>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
-  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <VcpkgEnabled>false</VcpkgEnabled>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)..\bin\Release\</OutDir>
+    <IntDir>$(ProjectDir)obj\Release\</IntDir>
+    <TargetName>skygfx</TargetName>
+    <TargetExt>.dll</TargetExt>
   </PropertyGroup>
-  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <VcpkgEnabled>false</VcpkgEnabled>
-  </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>rsc_CompanyName="aap";rsc_LegalCopyright="";rsc_FileVersion="4.2.0.0";rsc_ProductVersion="4.2.0.0";rsc_InternalName="skygfx";rsc_ProductName="skygfx";rsc_OriginalFilename="skygfx.dll";rsc_FileDescription="https://github.com/aap";rsc_UpdateUrl="https://github.com/aap/skygfx";NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\external\injector\include;..\external;..\resources;..\shaders;..\src;G:\RenderWare36\RW36\Graphics\rwsdk\include\d3d9;$(PLUGIN_SDK_DIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <Optimization>Full</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <MinimalRebuild>false</MinimalRebuild>
-      <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalOptions>/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>rsc_CompanyName=\"aap\";rsc_LegalCopyright=\"\";rsc_FileVersion=\"4.2.0.0\";rsc_ProductVersion=\"4.2.0.0\";rsc_InternalName=\"skygfx\";rsc_ProductName=\"skygfx\";rsc_OriginalFilename=\"skygfx.dll\";rsc_FileDescription=\"https://github.com/aap\";rsc_UpdateUrl=\"https://github.com/aap/skygfx\";NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\external\injector\include;..\external;..\resources;..\shaders;..\src;..\..\..\..\Documents\Softwares\RW36\Graphics\rwsdk\include\d3d9;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ResourceCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <ImportLibrary>..\bin\Release\skygfx.lib</ImportLibrary>
-    </Link>
-    <PreBuildEvent>
-      <Command>for /r "../shaders/ps/2_a/" %%f in (*.hlsl) do "fxc.exe" /T ps_2_a /nologo /E main /Fo ../resources/cso/%%~nf.cso %%f
-for /r "../shaders/ps/" %%f in (*.hlsl) do "fxc.exe" /T ps_2_a /nologo /E main /Fo ../resources/cso/%%~nf.cso %%f
-for /r "../shaders/vs/" %%f in (*.hlsl) do "fxc.exe" /T vs_2_a /nologo /E main /Fo ../resources/cso/%%~nf.cso %%f</Command>
-    </PreBuildEvent>
-    <PostBuildEvent>
-      <Command>copy /y "$(TargetPath)" "G:\GTA San Andreas - Urbanize\modloader\SkyGfx\skygfx.asi"</Command>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>rsc_CompanyName="aap";rsc_LegalCopyright="";rsc_FileVersion="4.2.0.0";rsc_ProductVersion="4.2.0.0";rsc_InternalName="skygfx";rsc_ProductName="skygfx";rsc_OriginalFilename="skygfx.dll";rsc_FileDescription="https://github.com/aap";rsc_UpdateUrl="https://github.com/aap/skygfx";DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\external\injector\include;..\external;..\resources;..\shaders;..\src;..\..\..\..\Documents\Softwares\RW36\Graphics\rwsdk\include\d3d9;$(PLUGIN_SDK_DIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\external\injector\include;..\external;..\resources;..\shaders;..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <AdditionalOptions>/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
-      <LanguageStandard>Default</LanguageStandard>
-      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>rsc_CompanyName=\"aap\";rsc_LegalCopyright=\"\";rsc_FileVersion=\"4.2.0.0\";rsc_ProductVersion=\"4.2.0.0\";rsc_InternalName=\"skygfx\";rsc_ProductName=\"skygfx\";rsc_OriginalFilename=\"skygfx.dll\";rsc_FileDescription=\"https://github.com/aap\";rsc_UpdateUrl=\"https://github.com/aap/skygfx\";DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\external\injector\include;..\external;..\resources;..\shaders;..\src;..\..\..\..\Documents\Softwares\RW36\Graphics\rwsdk\include\d3d9;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\external\injector\include;..\external;..\resources;..\shaders;..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -118,12 +77,41 @@ for /r "../shaders/vs/" %%f in (*.hlsl) do "fxc.exe" /T vs_2_a /nologo /E main /
     </Link>
     <PreBuildEvent>
       <Command>for /r "../shaders/ps/2_a/" %%f in (*.hlsl) do "fxc.exe" /T ps_2_a /nologo /E main /Fo ../resources/cso/%%~nf.cso %%f
-for /r "../shaders/ps/" %%f in (*.hlsl) do "fxc.exe" /T ps_2_0 /nologo /E main /Fo ../resources/cso/%%~nf.cso %%f
+for /r "../shaders/ps/" %%f in (*.hlsl) do "fxc.exe" /T ps_2_a /nologo /E main /Fo ../resources/cso/%%~nf.cso %%f
 for /r "../shaders/vs/" %%f in (*.hlsl) do "fxc.exe" /T vs_2_0 /nologo /E main /Fo ../resources/cso/%%~nf.cso %%f</Command>
     </PreBuildEvent>
-    <PostBuildEvent>
-      <Command>copy /y "$(TargetPath)" "G:\GTA San Andreas - Urbanize\modloader\SkyGfx\skygfx.asi"</Command>
-    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>rsc_CompanyName="aap";rsc_LegalCopyright="";rsc_FileVersion="4.2.0.0";rsc_ProductVersion="4.2.0.0";rsc_InternalName="skygfx";rsc_ProductName="skygfx";rsc_OriginalFilename="skygfx.dll";rsc_FileDescription="https://github.com/aap";rsc_UpdateUrl="https://github.com/aap/skygfx";NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\external\injector\include;..\external;..\resources;..\shaders;..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>rsc_CompanyName=\"aap\";rsc_LegalCopyright=\"\";rsc_FileVersion=\"4.2.0.0\";rsc_ProductVersion=\"4.2.0.0\";rsc_InternalName=\"skygfx\";rsc_ProductName=\"skygfx\";rsc_OriginalFilename=\"skygfx.dll\";rsc_FileDescription=\"https://github.com/aap\";rsc_UpdateUrl=\"https://github.com/aap/skygfx\";NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\external\injector\include;..\external;..\resources;..\shaders;..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <ImportLibrary>..\bin\Release\skygfx.lib</ImportLibrary>
+    </Link>
+    <PreBuildEvent>
+      <Command>for /r "../shaders/ps/2_a/" %%f in (*.hlsl) do "fxc.exe" /T ps_2_a /nologo /E main /Fo ../resources/cso/%%~nf.cso %%f
+for /r "../shaders/ps/" %%f in (*.hlsl) do "fxc.exe" /T ps_2_a /nologo /E main /Fo ../resources/cso/%%~nf.cso %%f
+for /r "../shaders/vs/" %%f in (*.hlsl) do "fxc.exe" /T vs_2_0 /nologo /E main /Fo ../resources/cso/%%~nf.cso %%f</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\external\ini_parser.hpp" />
@@ -156,6 +144,7 @@ for /r "../shaders/vs/" %%f in (*.hlsl) do "fxc.exe" /T vs_2_0 /nologo /E main /
     <ClCompile Include="..\src\vehiclePipe.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\resources\Resource.aps" />
     <None Include="..\shaders\shaders.bat" />
   </ItemGroup>
   <ItemGroup>
