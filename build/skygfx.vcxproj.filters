@@ -97,9 +97,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\resources\Resource.aps">
-      <Filter>resources</Filter>
-    </None>
     <None Include="..\shaders\shaders.bat">
       <Filter>shaders</Filter>
     </None>
