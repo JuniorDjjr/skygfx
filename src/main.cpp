@@ -1585,6 +1585,12 @@ InjectDelayedPatches()
 	// or when it already has a pipeline
 	explicitBuildingPipe = explicitBuildingPipe_tmp;
 
+	// Disable custom building/vehicle pipelines if ProperShaders is present (conflict)
+	if(ModuleList().Get(L"ProperShaders")){
+		iCanHasbuildingPipe = false;
+		iCanHasvehiclePipe = false;
+	}
+
 	// custom building pipeline
 	if(iCanHasbuildingPipe)
 		hookBuildingPipe();
